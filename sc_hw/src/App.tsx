@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import './solution.css';
-import Header from './components/Header';
 import MonthWeekTable from './components/MonthWeekTable';
 import TaskForm from './components/TaskForm';
 import EditTaskForm from './components/EditTaskForm';
+
+const HeaderSection: React.FC<{ year: number; quarter: number; onNext: () => void; onPrev: () => void; }> = ({ year, quarter, onNext, onPrev }) => {
+  return (
+    <div>
+      <h1 className="txt">{`Aasta: ${year}, Kvartal: ${quarter}`}</h1>
+      <button className="button" id="previous" onClick={onPrev}>Eelmine kvartal</button>
+      <button className="button" id="next" onClick={onNext}>Järgmine kvartal</button>
+      {/* Jah ma tean et suurem kui ja väiksem kui kasutus pole seksikas, aga noh ... neelame alla ja läheme eluga edasi*/}
+    </div>
+  );
+};
 
 const Sitavikat: React.FC = () => {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -83,7 +93,7 @@ const Sitavikat: React.FC = () => {
     if (tasks.length < 10) {
       setTasks([...tasks, task]);
     } else {
-      alert('Kümme taski kuus! On selge!');
+      alert('Kümme taski kuus! Rohkem ei saa!');
     }
   };
 
@@ -95,7 +105,7 @@ const Sitavikat: React.FC = () => {
     setShowForm(false);
   };
 
-  const handleTaskClick = (task: Task) => {
+  const htc = (task: Task) => {
     setEditingTask(task);
   };
 
@@ -105,11 +115,11 @@ const Sitavikat: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      <img src={`${process.env.PUBLIC_URL}/pip512.png`} alt="Logo" className="app-logo" />
-      <Header year={year} quarter={quarter} onNext={handleNextQuarter} onPrev={handlePrevQuarter} />
-      <MonthWeekTable months={getQuarterMonths(quarter)} weeks={getWeeksForQuarter(quarter, year)} tasks={tasks} handleTaskClick={handleTaskClick} />
-      <button onClick={handleAddTask}>Add Task</button>
+    <div className="app">
+      <img src={`${process.env.PUBLIC_URL}/pip512.png`} alt="Logo" title="Aitan nagu oskan" className="logo" />
+      <HeaderSection year={year} quarter={quarter} onNext={handleNextQuarter} onPrev={handlePrevQuarter} />
+      <MonthWeekTable months={getQuarterMonths(quarter)} weeks={getWeeksForQuarter(quarter, year)} tasks={tasks} htc={htc} />
+      <button onClick={handleAddTask} title="Nagu meil neid vähe ei oleks">Lisa ülesanne</button>
       {showForm && <TaskForm onSubmit={addTask} onClose={handleCloseForm} />}
       {editingTask && <EditTaskForm task={editingTask} onSubmit={handleEditTask} onClose={() => setEditingTask(null)} />}
     </div>

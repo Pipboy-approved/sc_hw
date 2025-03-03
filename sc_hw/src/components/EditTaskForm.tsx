@@ -29,32 +29,46 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ task, onSubmit, onClose }) 
   };
 
   return (
-    <div className="task-form-overlay">
-      <div className="task-form">
-        <button className="close-button" onClick={onClose}>X</button>
-        <h2>Edit Task</h2>
+    <div className="tfo">
+      <div className="tf">
+        <button className="cb" title="Lihtsalt vajuta" onClick={onClose}>X</button>
+        <h2>Muuda probleemi</h2>
         <form onSubmit={handleSubmit}>
           <label>
-            Task Name:
+            Ülesanne:
             <input type="text" name="name" value={updatedTask.name} onChange={handleChange} required />
           </label>
           <label>
-            Start:
-            <input type="date" name="start" value={updatedTask.start} onChange={handleChange} required />
+            Algus:
+            <input 
+              type="date"
+              id="algus" 
+              name="start" 
+              placeholder="päev/kuu/aasta"
+              onChange={handleChange} 
+              required 
+            />
           </label>
           <label>
-            End:
-            <input type="date" name="end" value={updatedTask.end} onChange={handleChange} required />
+            Tähtaeg:
+            <input 
+              type="date"
+              id="tähtaeg"
+              name="end" 
+              placeholder="päev/kuu/aasta"
+              onChange={handleChange}
+              required 
+            />
           </label>
           <label>
-            Comments:
-            <textarea name="comments" value={updatedTask.comments} onChange={handleChange} />
+            Kirjeldus:
+            <textarea name="Kommentaarid" value={updatedTask.comments} onChange={handleChange} />
           </label>
           <label>
-            Assigned To:
-            <input type="text" name="assignedTo" value={updatedTask.assignedTo} onChange={handleChange} />
+            Toimkond:
+            <input type="text" name="Toimkond" value={updatedTask.assignedTo} onChange={handleChange} />
           </label>
-          <button type="submit">Save Changes</button>
+          <button type="submit" className="salvesta">Salvesta probleem</button>
         </form>
       </div>
     </div>

@@ -8,7 +8,7 @@ interface Task {
   assignedTo: string;
 }
 
-const MonthWeekTable: React.FC<{ months: string[]; weeks: number[][]; tasks: Task[]; handleTaskClick: (task: Task) => void; }> = ({ months, weeks, tasks, handleTaskClick }) => {
+const MonthWeekTable: React.FC<{ months: string[]; weeks: number[][]; tasks: Task[]; htc: (task: Task) => void; }> = ({ months, weeks, tasks, htc }) => {
   const calculateBarWidth = (start: string, end: string) => {
     const startDate = new Date(start);
     const endDate = new Date(end);
@@ -47,7 +47,7 @@ const MonthWeekTable: React.FC<{ months: string[]; weeks: number[][]; tasks: Tas
 
   return (
     <div>
-      <table>
+      <table className="KvartaliTabel">
         <thead>
           <tr>
             {months.map((month, index) => (
@@ -61,17 +61,17 @@ const MonthWeekTable: React.FC<{ months: string[]; weeks: number[][]; tasks: Tas
           </tr>
         </thead>
       </table>
-      <div className="task-container">
+      <div className="tc">
         {tasks.map((task, index) => {
           return (
             <div
               key={index}
-              className={`task-bar`}
+              className={`tb`}
               style={{
                 width: calculateBarWidth(task.start, task.end),
                 left: calculateBarPosition(task.start, firstDayOfQuarter),
               }}
-              onClick={() => handleTaskClick(task)}
+              onClick={() => htc(task)}
             >
               {task.name}
             </div>

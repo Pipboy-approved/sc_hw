@@ -1,40 +1,26 @@
-.App {
-  text-align: center;
+/* Global styles */
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 1vw;
+  background-color: #999;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  background-color: #ddd;
+  color: #333;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease, background-color 0.5s ease;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  background-color: #bbb;
 }
 
 table {
@@ -56,34 +42,171 @@ table th {
   background-color: #ddd;
 }
 
-button {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  margin: 10px;
+/* Classes (alphabetically) */
+.ah {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.al {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.alink {
+  color: #61dafb;
+}
+
+.app {
+  text-align: center;
+}
+
+.cb {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #CC2E48;
+  color: #777;
+  width: 30px;
+  height: 30px;
   border: none;
-  background-color: #ddd;
-  color: black;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: box-shadow 0.5s ease, background-color 0.5s ease;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.cb:hover {
+  background: #E0425C;
+  transform: scale(1.05);
+}
+
+.KvartaliTabel {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 90vw;
+  margin: 0 auto;
   border-radius: 5px;
+  overflow: hidden;
 }
 
-button:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-  background-color: #bbb;
+.KvartaliTabel thead {
+  border-radius: 5px 5px 0 0;
 }
 
-body {
-  font-family: Verdana, sans-serif;
+.KvartaliTabel table {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.logo {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  max-width: 70px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.salvesta {
+  background-color: #5a5;
+}
+
+.salvesta:hover {
+  background-color: #6b6;
+  transform: scale(1.05);
+}
+
+.tb {
+  padding: 5px;
+  border-radius: 10px;
+  border: solid 1px #ccc;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.tf {
+  position: relative;
+  background-color: #ddd;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: calc(100% - 20px);
   font-size: 1vw;
+  color: #333;
 }
 
-.task-form-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+.tf h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.tf input,
+.tf textarea {
   width: 100%;
-  height: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.tf input:focus,
+.tf textarea:focus {
+  border-color: #555;
+  outline: none;
+}
+
+.tf input[type="date"] {
+  position: relative;
+}
+
+.tf input[type="date"]:before {
+  content: attr(title);
+  position: absolute;
+  color: #999;
+  left: 10px;
+  top: 8px;
+}
+
+.tf input[type="date"]:valid:before,
+.tf input[type="date"]:focus:before {
+  content: "";
+}
+
+.tf button {
+  margin-right: 10px;
+}
+
+.tf label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.tfo {
+  position: fixed;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -91,74 +214,20 @@ body {
   z-index: 1000;
 }
 
-.task-form {
-  position: relative;
-  background-color: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  max-width: calc(100% - 20px);
-  font-size: 1vw;
+/* IDs (alphabetically) */
+#minus {
+  background-color: #8E0808;
+  color: #eee;
 }
 
-.task-form h2 {
-  margin-top: 0;
+#plus {
+  background-color: #053;
+  color: #eee;
 }
 
-.task-form label {
-  display: block;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.task-form input,
-.task-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.task-form button {
-  margin-right: 10px;
-}
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgb(204, 46, 72);
-  border: none;
-  font-size: 1vw;
-  cursor: pointer;
-  color: #333;
-  border-radius: 25%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.task-bar {
-  padding: 5px;
-  border-radius: 10px;
-  text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  background-color: #bbe;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.app-logo {
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  max-width: 100px;
-  height: auto;
+/* Media Queries */
+@media (prefers-reduced-motion: no-preference) {
+  .al {
+    animation: al-spin infinite 20s linear;
+  }
 } 

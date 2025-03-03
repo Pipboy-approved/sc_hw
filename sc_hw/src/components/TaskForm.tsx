@@ -34,32 +34,46 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, onClose }) => {
   };
 
   return (
-    <div className="task-form-overlay">
-      <div className="task-form">
-        <button className="close-button" onClick={onClose}>X</button>
-        <h2>Add Task</h2>
+    <div className="tfo">
+      <div className="tf">
+        <button className="cb" title="Lihtsalt vajuta" onClick={onClose}>X</button>
+        <h2>Lisa probleem</h2>
         <form onSubmit={handleSubmit}>
           <label>
-            Task Name:
+            Probleem nimetus:
             <input type="text" name="name" value={task.name} onChange={handleChange} required />
           </label>
           <label>
-            Start:
-            <input type="date" name="start" value={task.start} onChange={handleChange} required />
+            Algus:
+            <input 
+              type="date"
+              id="start"
+              name="start" 
+              placeholder="päev/kuu/aasta"
+              value="päev/kuu/aasta"
+              required 
+            />
           </label>
           <label>
-            End:
-            <input type="date" name="end" value={task.end} onChange={handleChange} required />
+            Lõpp:
+            <input 
+              type="date"
+              id="end"
+              name="end" 
+              placeholder="päev/kuu/aasta"
+              value="päev/kuu/aasta"
+              required
+            />
           </label>
           <label>
-            Comments:
+            Ülesande sisu:
             <textarea name="comments" value={task.comments} onChange={handleChange} />
           </label>
           <label>
-            Assigned To:
+            Toimkond:
             <input type="text" name="assignedTo" value={task.assignedTo} onChange={handleChange} />
           </label>
-          <button type="submit">Lisa ülesanne</button>
+          <button type="submit" className="salvesta>">Lisa probleem</button>
         </form>
       </div>
     </div>
