@@ -1,4 +1,7 @@
-# Web App Instructions
+# Sissejuhatus
+
+See rakenduse ReadMe on kirjutatud enamalt jaolt masina poolt, eriti just jooksutamise osas ja seetõttu jäetud ka ingiliskeelsesse vormi. Samuti on masingenereeritud Analysis osa, sest rakendus on suht iseenesest mõistetav.
+Esialgsest Excelis kirjeldatud lahendist on deviatsioon kuupäevade visualiseerimises, mis on esteetiliselt taotluslik. Ei hakanud hetkel taski kohale kursori overlay div tagi genereerima, mis laeks puhvrist taski info ja kuvaks selle "hover modal view´na" taski horisontaalse indikaatori kohale, kui kursor seal kohal oleks. Aga seda on suht lihtne sinna va inkorporeerida.
 
 ## Analysis
 
@@ -41,6 +44,3 @@ Alternatively, you can run this command in your terminal in Windows (it will ope
 ```
 start microsoft-edge:http://localhost:3000
 ```
-
-### Summary
-By following the above steps, your React app should be up and running in Microsoft Edge. The app includes a functional modal with a close button, date picker controls, and task management functionality. If you encounter any issues, check your terminal for errors and ensure your environment is set up correctly. 
