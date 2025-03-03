@@ -7,7 +7,7 @@ import EditTaskForm from './components/EditTaskForm';
 const HeaderSection: React.FC<{ year: number; quarter: number; onNext: () => void; onPrev: () => void; }> = ({ year, quarter, onNext, onPrev }) => {
   return (
     <div>
-      <h1 className="txt">{`Aasta: ${year}, Kvartal: ${quarter}`}</h1>
+      <div className="hdr">{`Aasta: ${year}, Kvartal: ${quarter}`}</div>
       <button className="button" id="previous" onClick={onPrev}>Eelmine kvartal</button>
       <button className="button" id="next" onClick={onNext}>Järgmine kvartal</button>
       {/* Jah ma tean et suurem kui ja väiksem kui kasutus pole seksikas, aga noh ... neelame alla ja läheme eluga edasi*/}

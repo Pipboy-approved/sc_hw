@@ -68,7 +68,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ task, onSubmit, onClose }) 
             Toimkond:
             <input type="text" name="Toimkond" value={updatedTask.assignedTo} onChange={handleChange} />
           </label>
-          <button type="submit" className="salvesta">Salvesta probleem</button>
+          <button type="submit">Salvesta muudatus</button>
         </form>
       </div>
     </div>

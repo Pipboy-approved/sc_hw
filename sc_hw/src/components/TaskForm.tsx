@@ -36,7 +36,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, onClose }) => {
   return (
     <div className="tfo">
       <div className="tf">
-        <button className="cb" title="Lihtsalt vajuta" onClick={onClose}>X</button>
+        <button 
+          className="cb" 
+          title="Lihtsalt vajuta" 
+          onClick={onClose} 
+        >
+          X
+        </button>
         <h2>Lisa probleem</h2>
         <form onSubmit={handleSubmit}>
           <label>
@@ -49,8 +55,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, onClose }) => {
               type="date"
               id="start"
               name="start" 
-              placeholder="päev/kuu/aasta"
-              value="päev/kuu/aasta"
+              value={task.start}
+              onChange={handleChange}
               required 
             />
           </label>
@@ -60,8 +66,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, onClose }) => {
               type="date"
               id="end"
               name="end" 
-              placeholder="päev/kuu/aasta"
-              value="päev/kuu/aasta"
+              value={task.end}
+              onChange={handleChange}
               required
             />
           </label>
@@ -73,7 +79,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, onClose }) => {
             Toimkond:
             <input type="text" name="assignedTo" value={task.assignedTo} onChange={handleChange} />
           </label>
-          <button type="submit" className="salvesta>">Lisa probleem</button>
+          <button type="submit">Lisa probleem</button>
         </form>
       </div>
     </div>
